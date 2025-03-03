@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: Blog-Memory-Core
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      max-lifetime: 120000
+    url: jdbc:mysql://192.168.5.247:3306/blog?serverTimezone=Asia/Shanghai
+    username: root
+    password: 200211lmy
+
+  data:
+    redis:
+      host: 192.168.5.158
+      port: 6379
+      password: jhkdjhkjdhsIUTYURTU_nHKFHF
+      database: 1
+
+  mail:
+    host: smtp.126.com
+    username: kaka25zai@126.com
+    password: YHLTBERWDHURTNDV
+
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: rabbitmq
+    password: rabbitmq
+    virtual-host: /
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'Memory Blog接口文档'
+      paths-to-match: '/**'
+      packages-to-scan: com.blog.server.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+jwt:
+  key: LGpGkJdaMXsQysHhH9YPLcKTMdkA9XD48FAsVsNR4dzAQY9bWZ7KgaFNQ9ZLHYtv
+  expire: 72
+
+minio:
+  bucketName: blog
+  endpoint: http://192.168.5.158:9000
+  access-key: OZ0cfepkbejR7pB1M8AN
+  secret-key: d8IHTdF08UFnaQJXZxCvXpXiUkIm5nuTj86PGPsT
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+  prometheus:
+    metrics:
+      export:
+        enabled: true

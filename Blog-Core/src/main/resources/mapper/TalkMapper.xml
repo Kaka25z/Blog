@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.server.mapper.TalkMapper">
+
+    <resultMap id="BaseResultMap" type="com.blog.server.entity.Talk">
+            <id property="talkKey" column="talk_key" jdbcType="INTEGER"/>
+            <result property="talkTitle" column="talk_title" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        talk_key,talk_title,content,
+        create_time,update_time
+    </sql>
+    <insert id="addTalk">
+        insert into talks
+        (talk_title, content,
+         create_time, update_time)
+        values (#{talkTitle,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+
+    </insert>
+    <select id="getTalkList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from talks
+    </select>
+    <delete id="delTalk">
+        delete
+        from talks
+        where talk_key = #{id}
+    </delete>
+
+    <update id="updateTalk">
+        update talks
+        <set>
+            <if test="talk.talkTitle != null and talk.talkTitle != ''">
+                talk_title = #{talk.talkTitle},
+            </if>
+            <if test="talk.content != null and talk.content != ''">
+                content = #{talk.content},
+            </if>
+            update_time = #{talk.updateTime}
+        </set>
+        where talk_key = #{id}
+    </update>
+</mapper>

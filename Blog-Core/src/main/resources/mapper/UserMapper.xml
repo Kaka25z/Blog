@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.server.mapper.UserMapper">
+
+    <select id="findUser" resultType="com.blog.server.entity.User">
+        select
+        *
+        from user
+        where
+        username = #{username,jdbcType=VARCHAR}
+        AND password = #{password,jdbcType=VARCHAR}
+    </select>
+<!--    <update menuId="updateUser">-->
+<!--        update user-->
+<!--        set username = #{username,jdbcType=VARCHAR},-->
+<!--            password = #{password,jdbcType=VARCHAR}-->
+<!--    </update>-->
+    <select id="listUser">
+        select
+        *
+        from user
+    </select>
+</mapper>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image" href="/logo.png" />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/c/font_4335817_6gqxzh34cy.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/c/font_4466999_8sifudyyiw.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="./public/fonts/font.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 24px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body,
+      html {
+        font-family: "MapleMono-NF-CN";
+      }
+    </style>
+    <title>Blog</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="https://unpkg.com/oh-my-live2d@0.17.0"></script>
+    <script>
+      OML2D.loadOml2d({
+        models: [
+          {
+            path: 'https://model.oml2d.com/HK416-1-normal/model.json',
+            position: [-30, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450
+            }
+          },
+          {
+            path: './src/assets/live2d/model/dafeng_2/dafeng_2.model3.json',
+            position: [-50, 30],
+            scale: 0.07,
+            stageStyle: {
+              height: 450
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>

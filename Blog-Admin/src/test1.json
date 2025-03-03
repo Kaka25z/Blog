@@ -1,0 +1,24 @@
+{
+  "code": 200,
+  "data": {
+    "children": [
+      {
+        "component": "/user/index.vue",
+        "meta": {
+          "icon": null,
+          "rank": null,
+          "title": "用户管理"
+        },
+        "name": "用户管理",
+        "path": "/user"
+      }
+    ],
+    "meta": {
+      "icon": "codicon:account",
+      "rank": 1,
+      "title": "用户管理"
+    },
+    "path": "/user"
+  },
+  "message": "查询成功"
+}
